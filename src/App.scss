@@ -1,0 +1,124 @@
+@import 'bourbon/_bourbon';
+@import './1-base/_breakpoints';
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Avenir Next';
+}
+
+.interface__container {
+  max-width: 860px;
+  margin: 0 auto;
+  height: auto;
+  padding: 20px;
+  @include position(absolute, 50% null null 50%);
+  transform: translate(-50%, -50%);
+  @include breakpoint(xs) {
+        width: 300px;
+  }
+  .interface__ul {
+    @include display(flex);
+    @include justify-content(space-between);
+    @include align-items(center);
+    @include flex-wrap(wrap);
+    list-style: none;
+    width: auto;
+    margin: 0 auto;
+    height: 280px;
+    padding: 0;
+    @include breakpoint(xs) {
+      @include justify-content(center)
+    }
+    .interface__btn {
+      display: block;
+      height: 50px;
+      width: 186px;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: white;
+      font-weight: 100;
+      font-size: 14px;
+      text-align: center;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+      margin: 20px 40px;
+      @include transition(all 0.2s ease-in-out);
+      animation: fadeIn 0.7s;
+      &:after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        background: rgba(59, 173, 227, 1);
+        background: #FEAC5E;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        height: 50px;
+        width: 372px;
+        z-index: -1;
+        transform: translateX(-280px);
+        transition: transform 200ms ease-in;
+      }
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        &:after {
+          transform: translateX(-200px);
+        }
+      }
+      span {
+        position: relative;
+        top: 16px;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #222;
+  }
+  .movies__container {
+    background: white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    padding: 30px 50px;
+    height: auto;
+    text-align: center;
+    list-style: none;
+    h1 {
+      margin-top: 0;
+      background: #4568DC;
+      /* fallback for old browsers */
+      background: -webkit-linear-gradient(to right, #B06AB3, #4568DC);
+      /* Chrome 10-25, Safari 5.1-6 */
+      background: linear-gradient(to right, #B06AB3, #4568DC);
+      /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2em;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 10px;
+      animation: fadeIn 0.7s;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0)
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.2)
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+    }
+    li {
+      padding-bottom: 20px;
+    }
+  }
+}

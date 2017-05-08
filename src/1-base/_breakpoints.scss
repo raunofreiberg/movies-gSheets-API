@@ -1,0 +1,17 @@
+@mixin breakpoint($class) {
+    @if $class==xs {
+        @media (max-width: 1080px) {
+            @content;
+        }
+    }
+    @else if $class==xs {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+        @else if $class==1290 {
+            @media (max-width: 1290px) {
+                @content;
+            }
+        }
+    }
