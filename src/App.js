@@ -13,24 +13,19 @@ class App extends Component {
     data: [],
   }
 
-  componentDidMount() {
-    fetch('https://sheetsu.com/apis/v1.0/a58a8a714eaf')
+  componentWillMount() {
+    fetch('http://sheetsu.com/apis/v1.0/a58a8a714eaf')
       .then(response => response.json())
-      .then((json) => this.setState({ data: json }));
-
-
+      .then((json) => this.setState({ data: json }))
+      .catch((error) => console.log('There is an issue: ' + error.message))
   }
 
-
-
   render() {
-    let films = this.state.films
-    let data = this.state.data
-    console.log(data)
+
 
     return (
 
-      <BrowserRouter>
+      <HashRouter>
 
         <div className="interface__container">
 
@@ -40,16 +35,12 @@ class App extends Component {
           <Route path="/comedy" component={Comedy} />
 
 
-          <form sheetsu="https://sheetsu.com/apis/v1.0/a58a8a714eaf" sheetsu-after-submit="http://google.com">
-            <input type="text" name="Action" placeholder="Movie name" />
 
-            <input type="submit" />
-          </form>
         </div>
 
 
 
-      </BrowserRouter>
+      </HashRouter>
 
     );
   }

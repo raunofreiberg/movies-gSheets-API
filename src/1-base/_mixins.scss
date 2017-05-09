@@ -1,0 +1,46 @@
+@mixin fancy__btn() {
+    display: block;
+    height: 50px;
+    width: 186px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: white;
+    font-weight: 100;
+    font-size: 14px;
+    text-align: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+    margin: 20px 40px;
+    @include transition(all 0.2s ease-in-out);
+    animation: fadeIn 0.7s;
+    &:after {
+        position: absolute;
+        content: '';
+        display: inline-block;
+        background: rgba(59, 173, 227, 1);
+        background: #FEAC5E;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        height: 50px;
+        width: 372px;
+        z-index: -1;
+        transform: translateX(-280px);
+        transition: transform 200ms ease-in;
+    }
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        &:after {
+            transform: translateX(-200px);
+        }
+    }
+    span {
+        position: relative;
+        top: 16px;
+    }
+}
